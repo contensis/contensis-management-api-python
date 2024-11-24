@@ -1,0 +1,38 @@
+---
+name: Release Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    tags: v[0-9]+.[0-9]+.[0-9]+[a-z]?
+
+jobs:
+  pypi-publish:
+    name: Upload release to PyPI
+    runs-on: ubuntu-latest
+
+    environment:
+      name: release
+      url: https://test.pypi.org/p/contensis-management
+
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Checkout the repo.
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+      - name: Build package
+        run: uv build
+
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.12.2
+        with:
+          repository-url: https://test.pypi.org/legacy/
