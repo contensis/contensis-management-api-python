@@ -33,8 +33,8 @@ test:  # Run tests.
 	.venv/bin/python -m pytest ./tests --verbose --color=yes
 
 venv:  # Create an empty virtual environment (enough to create the requirements files).
-	uv venv .venv
-	.venv/bin/python -makefile pip install --upgrade pip uv
+	-python -m venv .venv  # Skip failure that happens in Github Action due to permissions.
+	.venv/bin/python -m pip install --upgrade pip uv
 
 venv-dev:  # Create the development virtual environment.
 	$(MAKE) venv
