@@ -34,7 +34,7 @@ test:  # Run tests.
 
 venv:  # Create an empty virtual environment (enough to create the requirements files).
 	uv venv .venv
-	.venv/bin/python -m uv pip install --upgrade pip uv
+	.venv/bin/python -makefile pip install --upgrade pip uv
 
 venv-dev:  # Create the development virtual environment.
 	$(MAKE) venv
