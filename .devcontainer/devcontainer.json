@@ -1,0 +1,24 @@
+{
+  "name": "Python 3",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/starship:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anweber.vscode-httpyac",
+        "charliermarsh.ruff",
+        "ms-vscode.makefile-tools",
+        "ms-python.black-formatter",
+        "ms-python.mypy-type-checker",
+        "ms-python.python",
+        "python.vscode-pylance",
+        "sourcery.sourcery",
+        "streetsidesoftware.code-spell-checker",
+        "tamasfe.even-better-toml"
+      ]
+    }
+  },
+  "postCreateCommand": ". ./.devcontainer/post-create.sh  > ../post-create-log.txt"
+}
