@@ -1,0 +1,46 @@
+{
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports.ruff": "always"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true
+    },
+    "editor.detectIndentation": true,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        88
+    ],
+    "files.exclude": {
+        "**/*.pyc": {
+            "when": "$(basename).py"
+        },
+        "**/.pytest_cache": true,
+        "**/__pycache__": true
+    },
+    "git.autofetch": true,
+    "python.analysis.extraPaths": [
+        "./"
+    ],
+    "python.autoComplete.extraPaths": [
+        "./"
+    ],
+    "python.defaultInterpreterPath": ".venv/bin/python",
+    "python.languageServer": "Pylance",
+    "python.terminal.activateEnvironment": true,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "args": [
+                "-l"
+            ],
+            "path": "bash"
+        }
+    },
+    "terminal.integrated.shellIntegration.enabled": true
+}

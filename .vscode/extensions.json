@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "anweber.vscode-httpyac",
+        "charliermarsh.ruff",
+        "ms-vscode.makefile-tools",
+        "ms-python.black-formatter",
+        "ms-python.mypy-type-checker",
+        "ms-python.python",
+        "python.vscode-pylance",
+        "sourcery.sourcery",
+        "streetsidesoftware.code-spell-checker",
+        "tamasfe.even-better-toml"
+    ]
+}

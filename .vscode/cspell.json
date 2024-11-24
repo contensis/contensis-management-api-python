@@ -1,0 +1,31 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+      "abcdefghijklmnopqrstuvwxyz",
+      "anweber",
+      "charliermarsh",
+      "contensis",
+      "debugpy",
+      "devcontainer",
+      "devcontainers",
+      "dont",
+      "dotenv",
+      "forcelist",
+      "gpsg",
+      "httpx",
+      "httpyac",
+      "ipykernel",
+      "levelname",
+      "mypy",
+      "pycache",
+      "pydantic",
+      "pylance",
+      "pytest",
+      "Sourcery",
+      "tamasfe",
+      "venv",
+      "zengenti",
+      "zenql"
+    ]
+  }
