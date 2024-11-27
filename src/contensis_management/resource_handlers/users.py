@@ -31,12 +31,17 @@ class Users:
         return [user.User(**item) for item in the_user_list]
 
     def check_user_groups(self, user_id: str, group_names: str) -> message.Message:
-        """Check if the user has permission to perform the action."""
-        url = f"/api/security/users/{user_id}/permissions/{group_names}"
-        the_api_response = self.client.get(url=url)
+        """Check if the user has permission to perform the action.
+
+        Status codes:
+        204: The user is in the group.
+        404: The user is not in the group.
+        """
+        url = f"/api/security/users/{user_id}/groups/{group_names}"
+        the_api_response = self.client.head(url=url)
         return message.Message(
             status_code=the_api_response.status_code,
-            detail=the_api_response.json_data or {"message": "No data provided"},
+            detail=the_api_response.json_data or {},
         )
 
     def is_in_groups(self, user_id: str, group_names: str) -> bool:

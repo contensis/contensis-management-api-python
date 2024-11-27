@@ -1,0 +1,31 @@
+## Contensis Users Demonstration
+
+### Get a Contensis Token
+POST https://cms-{{ALIAS}}.cloud.contensis.com/authenticate/connect/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+
+scope = openid%20offline_access%20Security_Administrator%20ContentType_Read%20ContentType_Write%20ContentType_Delete%20Entry_Read%20Entry_Write%20Entry_Delete%20Project_Read%20Project_Write%20Project_Delete%20Workflow_Administrator &
+grant_type = contensis_classic&
+username = {{USERNAME}}&
+password = {{PASSWORD}}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+    contensisToken = response.body.access_token;
+    client.global.set("contensis_token", contensisToken);
+    console.log("contensis_token :", contensisToken);
+%}
+
+### Check if user is a member of a group
+HEAD https://cms-{{ALIAS}}.cloud.contensis.com/api/security/users/@current/groups/Everyone
+Authorization: Bearer {{contensis_token}}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 204, "Response status is not 204");
+    });
+    console.log("Status code: ", response.status);
+%}
