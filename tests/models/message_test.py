@@ -18,3 +18,14 @@ def test_message():
     # Assert
     assert message_model.status_code == status_code
     assert message_model.detail == detail
+
+
+def test_message_allow_empty_detail():
+    """Confirm that the Message detail can be none where we just get status code."""
+    # Arrange
+    status_code = 404
+    # Act
+    message_model = message.Message(status_code=status_code, detail=None)
+    # Assert
+    assert message_model.status_code == status_code
+    assert message_model.detail is None
