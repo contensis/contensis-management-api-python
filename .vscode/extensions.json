@@ -6,6 +6,7 @@
     "ms-python.black-formatter",
     "ms-python.mypy-type-checker",
     "ms-python.python",
+    "ms-toolsai.jupyter",
     "python.vscode-pylance",
     "sourcery.sourcery",
     "streetsidesoftware.code-spell-checker",
