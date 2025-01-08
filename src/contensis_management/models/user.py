@@ -15,7 +15,7 @@ class Provider(camel_case.CamelModel):
 class Credentials(camel_case.CamelModel):
     """A Contensis user credentials model."""
 
-    passwordChangeFrequency: int
+    password_change_frequency: int | None = None
     provider: Provider
 
 
@@ -46,7 +46,7 @@ class User(camel_case.CamelModel):
     modified: datetime | None = None
     expiry: datetime | None = None
     password_changed: datetime | None = None
-    opt_out_of_notifications: bool
+    opt_out_of_notifications: bool | None = None
     failed_login_attempts: int | None = None
     failed_login_attempts_since_last_success: int | None = None
     successful_login_attempts: int | None = None
