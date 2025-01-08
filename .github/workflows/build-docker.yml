@@ -45,7 +45,6 @@ jobs:
       with:
         context: .
         file: .devcontainer/Dockerfile
-        target: development
         push: true
         tags: |
           ghcr.io/contensis/contensis-management-api-python:latest
