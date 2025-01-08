@@ -1,0 +1,35 @@
+---
+👷ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**
+
+📝documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - LICENSE
+          - README.md
+          - docs/**
+
+🏺development:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .devcontainer/**
+          - .vscode/**
+
+📦src:
+  - changed-files:
+      - any-glob-to-any-file:
+          - pyproject.toml
+          - src/**
+
+🧪tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - tests/**
+
+⛔️venv:
+  - changed-files:
+      - any-glob-to-any-file:
+          - requirements.txt
+          - requirements.dev.txt
