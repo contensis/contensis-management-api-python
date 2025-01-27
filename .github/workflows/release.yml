@@ -33,6 +33,4 @@ jobs:
         run: uv build
 
       - name: Publish package distributions to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.12.2
-        with:
-          repository-url: https://test.pypi.org/legacy/
+        uses: pypa/gh-action-pypi-publish@v1.12.4
