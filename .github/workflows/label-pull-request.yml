@@ -1,7 +1,7 @@
 ---
 name: Pull Request Labeler
 
-"on":
+on:
   pull_request:
     branches:
       - master

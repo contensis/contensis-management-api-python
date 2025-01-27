@@ -1,6 +1,6 @@
 [project]
 name = "contensis_management"
-version = "0.0.1"
+version = "0.0.2"
 description = "Contensis Management API"
 authors = [{ name = "Joe Collins", email = "j.collins@zengenti.com" }]
 readme = "README.md"
