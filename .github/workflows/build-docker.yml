@@ -2,14 +2,13 @@
 name: Build Docker Image
 
 on:
-
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - '.github/workflows/build-docker.yml'
-      - '.devcontainer/Dockerfile'
-      - 'requirements.dev.txt'
-      - 'pyproject.toml'
+      - ".github/workflows/build-docker.yml"
+      - ".devcontainer/Dockerfile"
+      - "requirements.dev.txt"
+      - "pyproject.toml"
 
 jobs:
   build-and-push:
@@ -21,32 +20,31 @@ jobs:
       attestations: write
 
     steps:
-    - name: Checkout the repo to depth of 2 so we can see what has changed (if needed).
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 2
-        submodules: false
-        clean: true
+      - name: Checkout the repo to depth of 2 so we can see what has changed (if needed).
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          submodules: false
+          clean: true
 
-    - name: Docker login
-      uses: docker/login-action@v3
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Docker login
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Set short git commit SHA
-      run: |
-        calculatedSha=$(git rev-parse --short ${{ github.sha }})
-        echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
+      - name: Set short git commit SHA
+        run: |
+          calculatedSha=$(git rev-parse --short ${{ github.sha }})
+          echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
 
-    - name: Build and Push Development Docker Image
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        file: .devcontainer/Dockerfile
-        push: true
-        tags: |
-          ghcr.io/contensis/contensis-management-api-python:latest
-          ghcr.io/contensis/contensis-management-api-python:${{ env.COMMIT_SHORT_SHA }}
-...
+      - name: Build and Push Development Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: .devcontainer/Dockerfile
+          push: true
+          tags: |
+            ghcr.io/contensis/contensis-management-api-python:latest
+            ghcr.io/contensis/contensis-management-api-python:${{ env.COMMIT_SHORT_SHA }}

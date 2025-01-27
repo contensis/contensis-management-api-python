@@ -21,6 +21,8 @@
     "pycache",
     "pydantic",
     "pylance",
+    "pypi",
+    "pyproject",
     "pytest",
     "Sourcery",
     "tamasfe",
